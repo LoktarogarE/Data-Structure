@@ -1,0 +1,12 @@
+bool isCompleteBST(tree* root){
+    if (!root) {
+        return true;
+    }
+    if ((root->left && !root->right) || (!root->left && root->right)) {
+        return false;
+    }
+    if (!isCompleteBST(root->left) || !isCompleteBST(root->right)) {
+        return false;
+    }
+    return true;
+}
