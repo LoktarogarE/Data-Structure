@@ -8,18 +8,11 @@ void print(tree* root){
     while (!Q.empty()) {
         temp = Q.front();
         Q.pop();
-        if (head) {
-            cout<<temp->data;
-            head = false;
-        }
-        else{
-            cout<<" "<<temp->data;
-        }
-        if (temp->left) {
+        cout<<temp->data<<" ";
+         if (temp->left) {
             Q.push(temp->left);
         }
         if (temp->right) {
             Q.push(temp->right);
         }
-    }
 }
