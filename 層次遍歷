@@ -15,4 +15,5 @@ void print(tree* root){
         if (temp->right) {
             Q.push(temp->right);
         }
+    }
 }
