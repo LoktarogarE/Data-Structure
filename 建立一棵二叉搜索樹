@@ -1,4 +1,5 @@
-`tree* Insert(tree* root,int key){`
+```c++
+tree* Insert(tree* root,int key){
     if (!root) {
         //root = (tree *)malloc(sizeof(tree));
         root = new tree();
@@ -14,4 +15,5 @@
             }
     }
     return root;
-}`
+}
+```
