@@ -1,3 +1,4 @@
+```C++
 //求解最容易錯的就是最底層可能有右子樹的結點，所以需要求得最底層左子樹結點的最大值進行對比
 
 int left_child_number(int total){
@@ -11,3 +12,4 @@ int left_child_number(int total){
     else
         return bottom + left_branch_number;
 }
+```
