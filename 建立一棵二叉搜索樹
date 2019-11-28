@@ -1,4 +1,3 @@
-```
 tree* Insert(tree* root,int key){
     if (!root) {
         //root = (tree *)malloc(sizeof(tree));
@@ -16,4 +15,3 @@ tree* Insert(tree* root,int key){
     }
     return root;
 }
-```
