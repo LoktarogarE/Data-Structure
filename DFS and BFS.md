@@ -16,6 +16,30 @@ void DFS(int v)
         if(!visited[i]&&map[v][i]==1)
             DFS(i);
 }
+//Non-recursive DFS
+void DFS_nr(int start) {
+    visited[start]= true;
+    cout<<start<<" "<< endl;
+    stack<int> s;
+    s.push(start);
+    bool is_push;
+    while (!s.empty()) {
+        is_push= false;
+        int top= s.top();
+        for (int i= 0; i< N; i++) {
+            if (!visited[i]&& mat[top][i]) {
+                visited[i]= true;
+                cout<< "visit: "<< i<< endl;
+                s.push(i);
+                is_push= true;
+                break;
+            }
+        }
+        if (!is_push) {
+            s.pop();
+        }
+    }
+}
 int main()
 {
     printf("请输入结点数:");
@@ -31,70 +55,8 @@ int main()
     for(int i=0;i<n;i++)
         if(!visited[i])
             DFS(i);
+            //DFS_nr(i);
     printf("\n");
-}
-```
----
-### 深度優先搜索(非递归)
-```C++
-#include <iostream>
-#include <stack>
-using namespace std;
-
-#define MaxNode 20
-#define MAX 2000
-#define StartNode 1
-
-int map[MaxNode+1][MaxNode+1];
-
-void dfs_stack(int start, int n){
-    int visited[MaxNode],s_top;
-    for(int i = 0;i <= MaxNode; i++){
-        visited[i] = 0;
-    }
-    visited[start] = 1;
-    stack <int> s;
-    cout<<start<<" ";
-    for(int i = 1; i <= n; i++){
-        if(map[i][start] == 1 && !visited[i] ){
-            visited[i] =  1;
-            s.push(i);
-        }
-    }
-    
-    while(!s.empty()){
-        s_top =  s.top();
-        visited[s_top] = 1;
-        cout<<s_top<<" ";
-        s.pop();
-        for(int i = 1; i <= n; i++){
-            if(map[i][s_top] == 1 && !visited[i] ){
-                visited[i] = 1;
-                s.push(i);
-            }
-        }
-    }
-    
-}
-
-int main(int argc, const char * argv[]) {
-    int num_edge,num_node;
-    int x,y;
-    cout<<"Input number of nodes and edges >"<<endl;
-    cin>>num_node>>num_edge;
-    for(int i =0;i<num_node;i++){
-        for(int j=0;j<num_node;j++){
-            map[i][j] = 0;
-        }
-    }
-    for(int i = 1; i <= num_edge; i++){
-        cin>>x>>y;
-        map[x][y] = map[y][x] = 1;
-    }
-    
-    dfs_stack(StartNode, num_node);
-
-    return 0;
 }
 ```
 ---
