@@ -1,4 +1,4 @@
-### 深度優先搜索(递归)
+### 深度優先搜索
 ```C++
 #include<stdio.h>
 #include<string.h>
