@@ -97,6 +97,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 ```
+---
 ### 廣度優先搜索
 ```C++
 #include<stdio.h>
