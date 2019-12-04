@@ -208,5 +208,3 @@ AVLTree* Insert(AVLTree* root, int key){
 }
 ```
 ---
-********
-===
