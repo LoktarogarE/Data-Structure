@@ -36,7 +36,7 @@ bool isCompleteBST(tree* root){
 ```
 ---
 # 樹的遍歷
-- 層次遍歷
+- **層次遍歷**
 ```C++
 void Hierarchical_traversal(tree* root){
     tree* temp = NULL;
@@ -58,7 +58,7 @@ void Hierarchical_traversal(tree* root){
     }
 }
 ```
-- 先序遍歷
+- **先序遍歷**
 ```C++
 void Preorder_traversal(AVLTree* root){
     if (root) {
@@ -68,7 +68,7 @@ void Preorder_traversal(AVLTree* root){
     }
 }
 ```
-- 中序遍歷
+- **中序遍歷**
 ```C++
 void In_order_traversal(AVLTree* root){
     if (root) {
@@ -78,7 +78,7 @@ void In_order_traversal(AVLTree* root){
     }
 }
 ```
-- 後序遍歷
+- **後序遍歷**
 ```C++
 void Postorder_traversal(AVLTree* root){
     if (root) {
@@ -108,7 +108,7 @@ int left_child_number(int total){
 ---
 # AVL Tree
 ### There are four situation of rotation
-- LL Rotation
+- **LL Rotation**
 ![LL](https://images0.cnblogs.com/i/497634/201403/281626153129361.jpg)
 ```C++
 AVLTree* left_left_rotation(AVLTree* k2){
@@ -121,8 +121,7 @@ AVLTree* left_left_rotation(AVLTree* k2){
     return k1;
 }
 ```
----
-- RR Rotation
+- **RR Rotation**
 ![RR](https://images0.cnblogs.com/i/497634/201403/281626410316969.jpg)
 ```C++
 AVLTree* right_right_rotation(AVLTree* k1){
@@ -136,8 +135,7 @@ AVLTree* right_right_rotation(AVLTree* k1){
 }
 
 ```
----
-- LR Rotation
+- **LR Rotation**
 ![LR](https://images0.cnblogs.com/i/497634/201403/281627088127150.jpg)
 ```C++
 AVLTree* left_right_rotation(AVLTree* k3){
@@ -146,8 +144,7 @@ AVLTree* left_right_rotation(AVLTree* k3){
     return left_left_rotation(k3);
 }
 ```
----
-- RL Rotation
+- **RL Rotation**
 ![RL](https://images0.cnblogs.com/i/497634/201403/281628118447060.jpg)
 ```C++
 AVLTree* right_left_rotation(AVLTree* k1){
@@ -176,7 +173,6 @@ int Max(int a, int b){
     return a > b ? a : b;
 }
 ```
----
 ### Insert operation
 ```C++
 AVLTree* Insert(AVLTree* root, int key){
@@ -212,3 +208,5 @@ AVLTree* Insert(AVLTree* root, int key){
 }
 ```
 ---
+********
+===
