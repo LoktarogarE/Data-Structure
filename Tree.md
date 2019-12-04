@@ -35,7 +35,7 @@ bool isCompleteBST(tree* root){
 }
 ```
 ---
-## 樹的遍歷
+# 樹的遍歷
 ### 層次遍歷
 ```C++
 void Hierarchical_traversal(tree* root){
