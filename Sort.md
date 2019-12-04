@@ -86,4 +86,5 @@ int main()
     return 0;
 }
 ```
+>[源网站(判断是否有环)](https://www.luogu.com.cn/blog/hyyyprtf06/kuai-su-ru-shou-ta-pu-pai-xu)
 ---
