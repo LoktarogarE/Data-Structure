@@ -1,4 +1,4 @@
-## 建立一棵二叉搜索樹
+# 建立一棵二叉搜索樹
 ```c++
 tree* Insert(tree* root,int key){
     if (!root) {
@@ -19,7 +19,7 @@ tree* Insert(tree* root,int key){
 }
 ```
 ---
-## 是否完全二叉樹
+# 是否完全二叉樹
 ```C++
 bool isCompleteBST(tree* root){
     if (!root) {
@@ -35,8 +35,8 @@ bool isCompleteBST(tree* root){
 }
 ```
 ---
-## 樹的遍歷
-### 層次遍歷
+# 樹的遍歷
+- 層次遍歷
 ```C++
 void Hierarchical_traversal(tree* root){
     tree* temp = NULL;
@@ -58,7 +58,7 @@ void Hierarchical_traversal(tree* root){
     }
 }
 ```
-### 先序遍歷
+- 先序遍歷
 ```C++
 void Preorder_traversal(AVLTree* root){
     if (root) {
@@ -68,7 +68,7 @@ void Preorder_traversal(AVLTree* root){
     }
 }
 ```
-### 中序遍歷
+- 中序遍歷
 ```C++
 void In_order_traversal(AVLTree* root){
     if (root) {
@@ -78,7 +78,7 @@ void In_order_traversal(AVLTree* root){
     }
 }
 ```
-### 後序遍歷
+- 後序遍歷
 ```C++
 void Postorder_traversal(AVLTree* root){
     if (root) {
@@ -89,7 +89,7 @@ void Postorder_traversal(AVLTree* root){
 }
 ```
 ---
-## 求一棵完全二叉樹的左子樹結點個數
+# 求一棵完全二叉樹的左子樹結點個數
 ```C++
 //求解最容易錯的就是最底層可能有右子樹的結點，所以需要求得最底層左子樹結點的最大值進行對比
 
@@ -106,9 +106,9 @@ int left_child_number(int total){
 }
 ```
 ---
-## AVL Tree
-## There are four situation of rotation
-- ### LL Rotation
+# AVL Tree
+### There are four situation of rotation
+- LL Rotation
 ![LL](https://images0.cnblogs.com/i/497634/201403/281626153129361.jpg)
 ```C++
 AVLTree* left_left_rotation(AVLTree* k2){
@@ -122,7 +122,7 @@ AVLTree* left_left_rotation(AVLTree* k2){
 }
 ```
 ---
-- ### RR Rotation
+- RR Rotation
 ![RR](https://images0.cnblogs.com/i/497634/201403/281626410316969.jpg)
 ```C++
 AVLTree* right_right_rotation(AVLTree* k1){
@@ -137,7 +137,7 @@ AVLTree* right_right_rotation(AVLTree* k1){
 
 ```
 ---
-- ### LR Rotation
+- LR Rotation
 ![LR](https://images0.cnblogs.com/i/497634/201403/281627088127150.jpg)
 ```C++
 AVLTree* left_right_rotation(AVLTree* k3){
@@ -147,7 +147,7 @@ AVLTree* left_right_rotation(AVLTree* k3){
 }
 ```
 ---
-- ### RL Rotation
+- RL Rotation
 ![RL](https://images0.cnblogs.com/i/497634/201403/281628118447060.jpg)
 ```C++
 AVLTree* right_left_rotation(AVLTree* k1){
