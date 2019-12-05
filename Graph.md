@@ -109,7 +109,6 @@ int main()
 ```
 ---
 # Dijkstra
-![Dijkstra](https://github.com/WangleiO/Data-Structure/blob/master/Dijkstra.png)
 ```C++
 void dijkstra()
 {
