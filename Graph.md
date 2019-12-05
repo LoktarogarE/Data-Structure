@@ -108,3 +108,26 @@ int main()
 }
 ```
 ---
+# Dijkstra
+
+```C++
+void dijkstra()
+{
+    memset(dis,INT_MAX,sizeof(dis));//初始化
+    v[1]=1;
+    dis[1]=0;
+    for(int i=1;i<=n;++i)
+    {
+        int k=0;
+        for(int j=1;j<=n;++j)//找出距离最近的点
+            if(!v[j]&&(k==0||dis[j]<dis[k]))
+                k=j;
+        v[k]=1;//加入集合
+        for(int j=1;j<=n;++j)//松弛
+            if(!v[j]&&dis[k]+a[k][j]<dis[j])
+                dis[j]=dis[k]+a[k][j];
+    }
+}
+```
+>注释(这个也太难啦吧)：
+用一个叫 dis 的数组存长度，一开始第一个结点为0，其余为最大值
