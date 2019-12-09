@@ -1,4 +1,4 @@
-### Select Sort
+# Select Sort
 ```C++
 void selectSort(int a[],int N)
 {
@@ -18,7 +18,7 @@ void selectSort(int a[],int N)
 }
 ```
 ---
-### Bubble Sort
+# Bubble Sort
 ```C++
 // n numbers sort (n-1) times, in the i(th) round , sort (n-i-1) times.
 
@@ -35,7 +35,7 @@ void BubbleSort (int arr[], int n){
 }
 ```
 ---
-### Topologically Sort
+# Topologically Sort
 ```C++
 #include<iostream>
 #include<queue>
