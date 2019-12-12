@@ -110,7 +110,7 @@ int main()
 ---
 # Dijkstra
 >Question describe
-给出顶点数(n)、边数(m)、起点(s)、终点(t)，求 s 到 t 的最短路径
+>给出顶点数(n)、边数(m)、起点(s)、终点(t)，求 s 到 t 的最短路径
 ```C++
 #include <iostream>
 #include <cstring>
