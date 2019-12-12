@@ -110,23 +110,82 @@ int main()
 ---
 # Dijkstra
 ```C++
-void dijkstra()
-{
-    memset(dis,INT_MAX,sizeof(dis));//初始化
-    v[1]=1;
-    dis[1]=0;
-    for(int i=1;i<=n;++i)
-    {
-        int k=0;
-        for(int j=1;j<=n;++j)//找出距离最近的点
-            if(!v[j]&&(k==0||dis[j]<dis[k]))
-                k=j;
-        v[k]=1;//加入集合
-        for(int j=1;j<=n;++j)//松弛
-            if(!v[j]&&dis[k]+a[k][j]<dis[j])
-                dis[j]=dis[k]+a[k][j];
+#include <iostream>
+#include <cstring>
+#define INF 0x3f3f3f3f;
+using namespace std;
+
+int map[2550][2550],dis[2550];
+bool visited[2550];
+int n,m,s,t;
+
+void init() {
+    memset(visited, false, sizeof(visited));
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++)
+            if (i == j)
+                map[i][j] = 0;
+            else
+                map[i][j] = INF;
     }
 }
+
+void dijkstra(){
+    for (int i = 1; i <= n; i++) {
+        dis[i] = map[s][i];
+    }
+    visited[s] = true;
+    for (int i=1; i<=n; i++) {
+        int v = 0;
+        int min = INF;
+        for (int j=1; j<=n; j++) {
+            if (!visited[j] && dis[j] < min) {
+                min = dis[j];
+                v = j;
+            }
+        }
+        visited[v] = true;
+        for (int k=1; k<=n; k++) {
+            if (!visited[k] && dis[v] + map[v][k] < dis[k]) {
+                dis[k] = dis[v] + map[v][k];
+            }
+        }
+    }
+    cout<<dis[t]<<endl;
+}
+
+int main(){
+
+    cin>>n>>m>>s>>t;
+    init();
+    int si,ti,wi;
+    for (int i=0; i<m; i++) {
+        cin>>si>>ti>>wi;
+        if (wi < map[si][ti]) {
+            map[si][ti] = map[ti][si] = wi;
+        }
+    }
+    dijkstra();
+    return 0;
+}
+/*
+ input:
+ 7 11 5 4
+ 2 4 2
+ 1 4 3
+ 7 2 2
+ 3 4 3
+ 5 7 5
+ 7 3 3
+ 6 1 1
+ 6 3 4
+ 2 4 3
+ 5 6 3
+ 7 2 1
+ 
+ output:
+ 7
+ */
 ```
 >注释(这个也太难啦吧)：
 用一个叫 dis 的数组存长度，还有一个叫 v 的数组来储存观察过的结点，一开始第一个结点为0，其余为最大值(∞)，根结点(也就是第一个结点)的 dis 为0，然后在那个大的for循环里面遍历每个结点一次，用 k 作为一个下标来标记 dis 数组中的最小值，已被访问的除外，!v[j]就说明了这样子滴，k 这个结点就被访问了咯，然后再更新每个未被访问的结点的距离，dis[k] + a[k][j]就是与 k 相连的结点的权值的，而dis[j]可能是被其他结点改变过的值，也可能是 ∞ ，反正变小就完事了。
