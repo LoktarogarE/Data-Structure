@@ -4,4 +4,4 @@
 
 - [Question Set](https://www.zybuluo.com/18520525018/note/1614445)
 
-- [图论究极攻略](https://www.luogu.com.cn/blog/wym483739/xue-tu-lun-ni-zhen-di-liao-xie-zui-duan-lu-ma-post)
+- [图论攻略](https://www.luogu.com.cn/blog/wym483739/xue-tu-lun-ni-zhen-di-liao-xie-zui-duan-lu-ma-post)
