@@ -1,3 +1,4 @@
+# Create stack without STL
 ```c++
 struct stack {
     int n = 0;
