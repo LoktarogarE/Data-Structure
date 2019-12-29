@@ -1,32 +1,4 @@
-# Create stack without STL
-```c++
-struct stack {
-    int n = 0;
-    int ss[maxn];
-
-    void push(int a) {
-        n++;
-        ss[n] = a;
-    }
-    void pop() {
-        n--;
-    }
-    int top() {
-        return ss[n];
-    }
-    bool empty() {
-        if(n == 0)
-            return true;
-        else
-            return false;
-    }
-    int size() {
-        return n;
-    }
-};
-```
----
-### 列车调度例题
+# 列车调度例题(Create stack without STL)
 描述
 某列车调度站的铁道联接结构如图所示。
 ![figure](https://github.com/WangleiO/Data-Structure/blob/master/03bc70595803464554b5f6b69a21962beb038264.png?raw=true)
@@ -62,4 +34,95 @@ Input:
 3 1 2 4 5
 Output:
 No
+```
+```c++
+#include <iostream>
+using namespace std;
+const int maxn = 16e5 + 5;
+
+struct stack {
+    int n = 0;
+    int ss[maxn];
+
+    void push(int a) {
+        n++;
+        ss[n] = a;
+    }
+    void pop() {
+        n--;
+    }
+    int top() {
+        return ss[n];
+    }
+    bool empty() {
+        if(n == 0)
+            return true;
+        else
+            return false;
+    }
+    int size() {
+        return n;
+    }
+};
+
+stack a,s;
+int ans[maxn];
+bool way[maxn];
+
+int main(int argc, const char * argv[]) {
+
+    int n,m;
+    cin>>n>>m;
+    for (int i=n; i>=1; i--) {
+        a.push(i);
+    }
+    for (int i=0; i<n; i++) {
+        cin>>ans[i];
+    }
+    int j = 0, k = 0;
+    bool flag = false;
+    while (!flag) {
+        if (k == n) {
+            flag = true;
+            break;
+        }
+        if (s.empty()) {
+            s.push(a.top());
+            a.pop();
+            way[j] = true;
+        }
+        else
+            if (ans[k] == s.top()) {
+                s.pop();
+                k++;
+                way[j] = false;
+            }
+        else
+            if (!a.empty()) {
+                s.push(a.top());
+                a.pop();
+                way[j] = true;
+            }
+            else{
+                cout<<"No"<<endl;
+                break;
+            }
+        if (s.size()>m) {
+            cout<<"No"<<endl;
+            break;
+        }
+        ++j;
+    }
+
+    if (flag) {
+        for (int i=0; i<j; i++) {
+            if (way[i]) {
+                cout<<"push"<<endl;
+            }
+            else
+                cout<<"pop"<<endl;
+        }
+    }
+    return 0;
+}
 ```
