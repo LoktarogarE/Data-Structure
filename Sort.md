@@ -95,7 +95,8 @@ int main()
 using namespace std;
 
 int a[101],n;//定义全局变量，这两个变量需要在子函数中使用
-void quicksort(int left,int right)
+//Recursion
+void QuickSort(int left,int right)
 {
     int i,j,t,temp;
     if(left > right)
@@ -124,9 +125,79 @@ void quicksort(int left,int right)
     a[left] = a[i];
     a[i] = temp;
     
-    quicksort(left,i-1);//继续处理左边的，这里是一个递归的过程
-    quicksort(i+1,right);//继续处理右边的 ，这里是一个递归的过程
+    QuickSort(left,i-1);//继续处理左边的，这里是一个递归的过程
+    QuickSort(i+1,right);//继续处理右边的 ，这里是一个递归的过程
 }
+//Not recursion
+int PartSort(int* array, int left, int right)
+{
+    //基准值
+    int ponit = array[left];
+    
+    //坑的位置
+    int temp = left;
+ 
+    while (left <= right)
+    {
+        while (left <= right)
+        {
+            if (array[right] < ponit)
+            {
+                array[left] = array[right];
+                ++left;
+                temp = right;
+                break;
+            }
+            else
+                --right;
+        }
+        while (left <= right)
+        {
+            if (array[left] > ponit)
+            {
+                array[right] = array[left];
+                --right;
+                temp = left;
+                break;
+            }
+            else
+                ++left;
+        }
+ 
+    }
+    array[temp] = ponit;
+    return temp;
+}
+ 
+void QuickSortNotRecursion(int* array, int left, int right)
+{
+    
+    stack<int> s;
+    s.push(left);
+    s.push(right);
+    while (!s.empty())
+    {
+        int right = s.top();
+        s.pop();
+        int left = s.top();
+        s.pop();
+        //划分左右部分的边界线
+        int Index = PartSort(array, left, right);
+        //左半部分
+        if (Index - 1 > left)
+        {
+            s.push(left);
+            s.push(Index - 1);
+        }
+        //右半部分
+        if (Index + 1 < right)
+        {
+            s.push(Index + 1);
+            s.push(right);
+        }
+    }
+}
+
 int main(int argc, const char * argv[])
 {
     int i;
@@ -134,8 +205,8 @@ int main(int argc, const char * argv[])
     scanf("%d",&n);
     for(i=1;i<=n;i++)
         scanf("%d",&a[i]);
-    quicksort(1,n); //快速排序调用
-    
+    QuickSort(1,n); //快速排序调用
+    //QuickSortNotRecursion(a, 1, n);//Not recursion
     //输出排序后的结果
     for(i=1;i<=n;i++)
         printf("%d ",a[i]);
