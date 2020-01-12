@@ -67,6 +67,25 @@ void Preorder_traversal(AVLTree* root){
         Preorder_traversal(root->right);
     }
 }
+
+//非递归
+void PreorderTraversalNotRecursion(tree* root){
+    stack<tree* >nodeStack;
+    tree* pointer = root;
+    while (!nodeStack.empty() || pointer != NULL) {
+        if (pointer != NULL) {
+            cout<<pointer->data<<" ";
+            if (pointer->right != NULL) {
+                nodeStack.push(pointer->right);
+            }
+            pointer = pointer->left;
+        }
+        else{
+            pointer = nodeStack.top();
+            nodeStack.pop();
+        }
+    }
+}
 ```
 - **中序遍歷**
 ```C++
