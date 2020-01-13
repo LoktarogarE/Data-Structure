@@ -7,7 +7,6 @@ void perm(char A[], int start, int end)//A是要排列的数组，start、end表
         for (int i = 0;i <= end; i++)
             cout << A[i] << "  ";
         cout << endl;
-        count++;
     }
     else
     {
