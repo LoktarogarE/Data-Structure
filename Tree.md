@@ -127,11 +127,37 @@ void InorderTraversalNotRecursion(tree* root){
 ```
 - **後序遍歷**
 ```C++
-void Postorder_traversal(AVLTree* root){
+void Postorder_traversal(tree* root){
     if (root) {
         Postorder_traversal(root->left);
         Postorder_traversal(root->right);
         cout<<root->data<<" ";
+    }
+}
+
+//非递归
+void PostorderTraversalNotRecursion(tree* root){
+    if (root) {
+        stack<tree*> st;
+        tree* p = root,*r = NULL;
+        while (p || !st.empty()) {
+            if (p) {
+                st.push(p);
+                p = p->left;
+            }
+            else {
+                p = st.top();
+                if(p->right!=NULL&&p->right != r){
+                p = p->right;
+            }
+                else {
+                    st.pop();
+                    cout << p->data << " ";
+                    r = p;
+                    p = NULL;
+                }
+            }
+        }
     }
 }
 ```
