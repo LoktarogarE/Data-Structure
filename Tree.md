@@ -153,6 +153,37 @@ int left_child_number(int total){
 }
 ```
 ---
+# 二叉树的删除(未完善)
+```c++
+tree* Delete(tree* root, int key){
+    
+    tree* temp = NULL;
+    if (root) {
+        if (key < root->data) {
+            root = Delete(root->left, key);
+        }
+        else
+            if (key > root->data) {
+                root = Delete(root->right, key);
+            }
+        else
+            if (root->left && root->right) {
+                temp = root->right;
+                while (temp->left) {
+                    temp = temp->left;
+                }//find the first element in in-order traversal queue of what you want to delete
+                root->data = temp->data;
+                root->right = Delete(root->right, root->data);
+            }
+            else{
+                
+            }
+    }
+    return root;
+}
+
+```
+---
 # AVL Tree
 ### There are four situation of rotation
 - **LL Rotation**
