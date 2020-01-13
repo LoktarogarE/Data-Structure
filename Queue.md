@@ -1,5 +1,5 @@
 # 假溢出
-[什么是假溢出](https://blog.csdn.net/will130/article/details/49306523)
+[什么是假溢出](https://blog.csdn.net/will130/article/details/49306523)  
 解决方法：用循环队列判空判满。
 ---
 # 循环队列
